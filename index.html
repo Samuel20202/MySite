@@ -1,39 +1,202 @@
-
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Links</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Panton:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sensei">
+    
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrolling */
+            cursor: default; /* Show default cursor */
+        }
+        #overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-family: 'Sensei', sans-serif; /* Apply Sensei font */
+            cursor: pointer;
+            transition: opacity 1s;
+            z-index: 2;
+        }
+        #Bandit {
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-family: 'Sensei', sans-serif; /* Apply Sensei font */
+            color: white;
+            z-index: 2;
+            display: none; /* Initially hide the Bandit text */
+        }
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            display: none;
+        }
+        .border {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 39px 27px;
+            width: 100%;
+            max-width: 35.9rem;
+            border-radius: 35px;
+            box-shadow: 0 0 2.5px #ffffff;
+            display: none; /* Initially hide the border content */
+            z-index: 3;
+            background: white; /* Background for better visibility of the 'x' */
+            position: relative; /* Relative positioning to place the 'x' */
+            text-align: center; /* Center content */
+        }
+        @media (max-width : 480px) {
+            .border {
+                left: 50%;
+                padding: 0px;
+                width: 80%;
+                max-width: 100%;
+                border-radius: 21px;
+            }
+        }
+        .close-button {
+            position: absolute;
+            top: 10px; /* Adjust the position from the top */
+            right: 10px; /* Adjust the position from the right */
+            font-size: 36px; /* Larger size for the 'x' */
+            cursor: pointer;
+            color: black; /* Color of the 'x' */
+            font-weight: bold; /* Make 'x' bold */
+            z-index: 4; /* Ensure 'x' is above other content */
+        }
+        @font-face {
+            font-family: custom-font;
+            src: url(fonts/Satoshi-Medium.woff);
+        }
+        * {
+            font-family: custom-font;
+            cursor: url(https://cur.cursors-4u.net/holidays/hol-1/hol39.cur) 16 16, auto !important;
+        }
+        .discord-icon {
+            position: absolute;
+            bottom: 10px; /* Position at the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .discord-icon img {
+            width: 25px; /* Adjust icon size */
+            height: 25px; /* Adjust icon size */
+            cursor: pointer;
+        }
+        .border h1 {
+            margin: 0;
+            font-family: 'Sensei', sans-serif; /* Apply Sensei font */
+        }
+    </style>
+</head>
+<body>
 
-  <html>
-        <head>
-         
-            <style>
-                body {
-                    font-family: 'Calibri', 'sans-serif';
-                    font-size: 50px;
-                    font-weight: bold;
-                    text-align:center;
-                }
+<font id="overlay" onclick="fadeOutOverlay()">Click anywhere...</font> 
+<font id="Bandit">Bandit</font> 
 
-                form {
-                    position: relative;
-                    bottom: 0;
-                    right: 0;
-                }
-            </style>
-        </head>
-        <body>
-             <link rel="stylesheet" href="main.css">
-<video id="background-video" autoplay loop muted poster="https://cdn.discordapp.com/attachments/1260334874653491292/1268315105893027975/2024-07-20_162641.png">
-  <source src="https://cdn.discordapp.com/attachments/1260334874653491292/1268300293196484689/TREN_TWINS_-_I_HATE_EVERYTHING_ABOUT_YOU_-_TREN_TWINS_MOTIVATION.mp4" type="video/mp4">
+<video id="background-video" loop>
+    <source src="https://cdn.discordapp.com/attachments/1266278898035986476/1269264156238811156/TREN_TWINS_-_I_HATE_EVERYTHING_ABOUT_YOU_-_TREN_TWINS_MOTIVATION.mp4?ex=66af6ddc&is=66ae1c5c&hm=51b092dfa2410a2326fad41ebdc6c9e35bcc21a502711c20afd374608d9d5b4b&" type="video/mp4">
+    Your browser does not support the video tag.
 </video>
-            <p>Bandit</p>
-            <form method="post" action=".">
-               <video width="500px" 
-           height="400px" 
-           controls="controls">
-        <source src=
-"https://media.geeksforgeeks.org/wp-content/uploads/20231020155223/
-Full-Stack-Development-_-LIVE-Classes-_-GeeksforGeeks.mp4" 
-                type="video/mp4" />
-    </video>
-            </form>
-        </body>
-    </html>
+
+<div class="border">
+    <div class="close-button" onclick="closeBorder()">×</div>
+    <h1>Bandit</h1>
+    <div class="avatar">
+        <div class="avatar-container" style="display: flex; justify-content: center; align-items: center;">
+           
+        </div>
+    </div>
+    <div class="social-media">
+        <div class="username-badge">
+            <div class="username-container">
+                <h1 class="rainbow-username inline-effect">
+                  
+                  <br>
+                  </br>
+                  
+                  Proud Bulgarian
+                  <br>
+                  
+                  Python, lua, luau, js programmar.
+                  
+                  </br>
+                  <br>
+                  </br>
+                 
+                  (<small>my discord is 2__bandit__2</small>)
+                  </h1>
+            </div>
+        </div>
+        <div class="role-icon-wrapper" style="display: none;">
+        </div>
+    </div>
+    <div class="discord-icon">
+        <a href="YOUR_DISCORD_PROFILE_URL" target="_blank">
+            <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6918e57475a843f59f_icon_clyde_black_RGB.svg" alt="Discord Profile">
+        </a>
+    </div>
+</div>
+
+<script>
+    function fadeOutOverlay() {
+        var overlay = document.getElementById('overlay');
+        var video = document.getElementById('background-video');
+        var bandit = document.getElementById('Bandit');
+        var border = document.querySelector('.border');
+        var opacity = 1;
+        var volume = 0;
+        
+        video.style.display = 'block';
+        video.play();
+        
+        var fadeEffect = setInterval(function () {
+            if (opacity > 0) {
+                opacity -= 0.01;
+                volume += 0.01;
+                overlay.style.opacity = opacity;
+                video.volume = volume;
+            } else {
+                clearInterval(fadeEffect);
+                overlay.style.display = 'none';
+                bandit.style.display = 'none'; // Hide the Bandit text
+                border.style.display = 'block'; // Show the border content
+            }
+        }, 10);
+    }
+
+    function closeBorder() {
+        var border = document.querySelector('.border');
+        border.style.display = 'none'; // Hide the border content when 'x' is clicked
+    }
+
+    window.onload = function() {
+        var video = document.getElementById('background-video');
+        video.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
